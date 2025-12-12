@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>솔별 / Sol Byul - Digital Business Card</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, #1a2a6c 0%, #2d4a7c 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .card-container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a3a5c 0%, #2d4a7c 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::before {
+            content: '✦';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 60px;
+            opacity: 0.2;
+            color: #d4af37;
+        }
+        
+        .name-primary {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .name-secondary {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 15px;
+            color: #d4af37;
+        }
+        
+        .title {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .tagline {
+            font-size: 1em;
+            font-style: italic;
+            opacity: 0.8;
+            margin-top: 15px;
+            color: #d4af37;
+        }
+        
+        .profile-highlights {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 15px;
+        }
+        
+        .highlight-item {
+            background: rgba(255,255,255,0.1);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 0.9em;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .highlight-icon {
+            margin-right: 6px;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 600px) {
+            .highlights-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #1a3a5c;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #d4af37;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+        
+        .contact-item:hover {
+            background: #f5f5f5;
+        }
+        
+        .contact-icon {
+            width: 24px;
+            margin-right: 12px;
+            color: #2d4a7c;
+        }
+        
+        .contact-item a {
+            color: #1a3a5c;
+            text-decoration: none;
+            flex: 1;
+        }
+        
+        .contact-item a:hover {
+            color: #d4af37;
+        }
+        
+        .publication {
+            padding: 12px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 3px solid #d4af37;
+        }
+        
+        .publication-title {
+            font-weight: 600;
+            color: #1a3a5c;
+            margin-bottom: 5px;
+        }
+        
+        .publication-meta {
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .rating {
+            color: #d4af37;
+            font-weight: 600;
+        }
+        
+        .btn-vcard {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #d4af37 0%, #c49b2c 100%);
+            color: white;
+            text-align: center;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-vcard:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+        
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-link {
+            padding: 12px;
+            background: #1a3a5c;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.3s;
+            font-size: 0.9em;
+        }
+        
+        .social-link:hover {
+            background: #2d4a7c;
+        }
+        
+        @media (max-width: 600px) {
+            .name-primary {
+                font-size: 2em;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .social-links {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="header">
+            <div class="name-primary">솔별 / Sol Byul</div>
+            <div class="name-secondary">(Lyra S. Wood)</div>
+            <div class="title">작가 | Writer</div>
+            <div class="tagline">"한국과 뉴질랜드를 잇는 이야기"</div>
+            
+            <div class="profile-highlights">
+                <div class="highlights-grid">
+                    <div class="highlight-item">
+                        <span class="highlight-icon">🎓</span>
+                        Ph.D. Life Sciences
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon">📊</span>
+                        M.B.A. in Business Management
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon">✍️</span>
+                        Essayist & Novelist
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon">☕</span>
+                        Certified Coffee Barista
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon">🍷</span>
+                        Wine Sommelier
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-icon">🎬</span>
+                        Content Creator
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- Contact Section -->
+            <div class="section">
+                <div class="section-title">📞 Contact</div>
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <a href="/cdn-cgi/l/email-protection#7b111712164a434b3b1c161a121755181416"><span class="__cf_email__" data-cfemail="2c464045411d141c6c4b414d4540024f4341">[email&#160;protected]</span></a>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🇰🇷</span>
+                    <a href="tel:+821022008231">Korea: 010.2200.8231</a>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🇳🇿</span>
+                    <a href="tel:+64275178379">New Zealand: 027.517.8379</a>
+                </div>
+            </div>
+            
+            <!-- Published Works Section -->
+            <div class="section">
+                <div class="section-title">📚 Published Works</div>
+                
+                <div class="publication">
+                    <div class="publication-title">마흔일곱, 삶의 지도를 바꾸다</div>
+                    <div class="publication-meta">교보문고 | <a href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012066480" target="_blank" style="color: #2d4a7c;">View Book →</a></div>
+                </div>
+                
+                <div class="publication">
+                    <div class="publication-title">Forty-Seven: Rewriting the Map of Life</div>
+                    <div class="publication-meta">Amazon | <a href="https://www.amazon.com.au/dp/B0FNLFDKGD" target="_blank" style="color: #2d4a7c;">View Book →</a></div>
+                </div>
+                
+                <div class="publication">
+                    <div class="publication-title">논문공장 3870 - 사냥의 시작 <span class="rating">★10.0</span></div>
+                    <div class="publication-meta">네이버 웹소설 | <a href="http://novel.naver.com/best/list?novelId=1208494" target="_blank" style="color: #2d4a7c;">Read Now →</a></div>
+                </div>
+                
+                <div class="publication">
+                    <div class="publication-title">검은 연구실 - 옮겨 심겨진 괴물 <span class="rating">★6.18</span></div>
+                    <div class="publication-meta">네이버 웹소설 | <a href="http://novel.naver.com/best/list?novelId=1210421" target="_blank" style="color: #2d4a7c;">Read Now →</a></div>
+                </div>
+            </div>
+            
+            <!-- Social Links -->
+            <div class="section">
+                <div class="section-title">🔗 Connect</div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/jonny-lim-136bb644" target="_blank" class="social-link">LinkedIn</a>
+                    <a href="https://www.threads.com/@cangyong77" target="_blank" class="social-link">Threads</a>
+                    <a href="http://novel.naver.com" target="_blank" class="social-link">Naver Series</a>
+                    <a href="https://www.royalroad.com/profile/858702/fictions" target="_blank" class="social-link">Royal Road</a>
+                </div>
+            </div>
+            
+            <!-- Download vCard Button -->
+            <button class="btn-vcard" onclick="downloadVCard()">📥 연락처 저장 (Save Contact)</button>
+        </div>
+    </div>
+    
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        function downloadVCard() {
+            const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:솔별 (Sol Byul / Lyra S. Wood)
+N:Sol Byul;;;;;
+TITLE:작가 | Writer | Ph.D. Life Sciences | M.B.A.
+EMAIL;TYPE=INTERNET:jlim180@gmail.com
+TEL;TYPE=CELL:+82-10-2200-8231
+TEL;TYPE=CELL:+64-27-517-8379
+URL:https://www.linkedin.com/in/jonny-lim-136bb644
+URL:https://www.threads.com/@cangyong77
+URL:https://www.royalroad.com/profile/858702/fictions
+NOTE:한국과 뉴질랜드를 잇는 이야기를 쓰는 작가.\\n\\nCredentials: Ph.D. Life Sciences, M.B.A. in Business Management, Essayist & Novelist, Certified Coffee Barista, Wine Sommelier, Content Creator\\n\\n출판 작품:\\n- 마흔일곱 삶의 지도를 바꾸다 (교보문고)\\n- Forty-Seven: Rewriting... (Amazon)\\n- 논문공장 3870 - 사냥의 시작 (네이버 웹소설)\\n- 검은 연구실 - 옮겨 심겨진 괴물 (네이버 웹소설)\\n\\nSocial: @cangyong77 (Threads)\\nRoyal Road: royalroad.com/profile/858702/fictions
+END:VCARD`;
+            
+            const blob = new Blob([vcard], { type: 'text/vcard' });
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            l
