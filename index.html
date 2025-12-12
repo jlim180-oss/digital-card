@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>솔별 / Sol Byul - Digital Business Card</title>
+    <title>솔별 / Sol Byeol (Jonny Lim) - Digital Business Card</title>
     <style>
         * {
             margin: 0;
@@ -38,14 +38,12 @@
             position: relative;
         }
         
-        .header::before {
-            content: '✦';
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 60px;
-            opacity: 0.2;
-            color: #d4af37;
+        .name-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
         
         .name-primary {
@@ -53,6 +51,15 @@
             font-weight: 700;
             margin-bottom: 10px;
             letter-spacing: 2px;
+        }
+        
+        .qr-code-header {
+            width: 80px;
+            height: 80px;
+            padding: 8px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
         
         .name-secondary {
@@ -107,6 +114,24 @@
         @media (max-width: 600px) {
             .highlights-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .name-primary {
+                font-size: 1.8em;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .name-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .qr-code-header {
+                width: 70px;
+                height: 70px;
             }
         }
         
@@ -246,8 +271,11 @@
 <body>
     <div class="card-container">
         <div class="header">
-            <div class="name-primary">솔별 / Sol Byul</div>
-            <div class="name-secondary">(Lyra S. Wood)</div>
+            <div class="name-container">
+                <div class="name-primary">솔별 / Sol Byeol</div>
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEYCAIAAAAI7H7bAAAF20lEQVR4nO3d4W2stRZAUS6iC0p5tVAdtVAKdQwNPCMZ9sF2stbfezWZTLJlKUfH34/P5/MT8O/8fPoNwFcgJAgICQJCgoCQICAkCAgJAr+s/uHX//32X76Pf+zPP37f+v+r72v1Orufw+77qbz+83r9/TuRICAkCAgJAkKCgJAgICQICAkCyznSyutzkt33P/39Ts+pXp+PvfL75kSCgJAgICQICAkCQoKAkCAgJAhsz5FWTs15Vk7tt+zObabnPNXnUL3/236+1ftxIkFASBAQEgSEBAEhQUBIEBASBLI50itO3as2vQdVzW2m5z9flRMJAkKCgJAgICQICAkCQoKAkCDw7eZI03tBt+1BrUzvF323uZMTCQJCgoCQICAkCAgJAkKCgJAgkM2RXp8bTO/zrJy65+22+/d23fb75kSCgJAgICQICAkCQoKAkCAgJAhsz5FO7dtUpveOTr3+yvS86NRzmW7jRIKAkCAgJAgICQJCgoCQICAkCCznSLfte0yr5ien3DYfm34e1G2cSBAQEgSEBAEhQUBIEBASBIQEgeUc6dT+ya7d5/NM38NWfQ7fbW5z2+/PLicSBIQEASFBQEgQEBIEhAQBIUFgfB+pmsOcmudUbnv/r9zLt3LqPr3V13UiQUBIEBASBIQEASFBQEgQEBIEfnw+n//7D9Xezqm9plP7Nq/v1azcdr/f9O/V7vflRIKAkCAgJAgICQJCgoCQICAkCGRzpMor961Nz81O3R94ah608so9ik4kCAgJAkKCgJAgICQICAkCQoLAco60cmpf6JX5w6n50spt9/utnNpPqz5nJxIEhAQBIUFASBAQEgSEBAEhQWD5fKTpe8B23ban9Mq86JXXef3ePCcSBIQEASFBQEgQEBIEhAQBIUFgex+p8sqeybRT87qv+nVP7cs5kSAgJAgICQJCgoCQICAkCAgJAst9pJVqPjM9lzg196hM7/9U98idmtedmhetOJEgICQICAkCQoKAkCAgJAgICQLLfaTb/k7/ynONdn3V+992nXo+0op77eAAIUFASBAQEgSEBAEhQUBIEFjuI516/k/1/6fddi9fdV/cqX2z6fc/PX9zIkFASBAQEgSEBAEhQUBIEBASBLb3kV6f/+x6ZW5zau40bfpz3n2dFScSBIQEASFBQEgQEBIEhAQBIUFg/F67ldfvkds1PReqXue2uc0rz6dyIkFASBAQEgSEBAEhQUBIEBASBJb32t1m+r612+5VOzV3WrltzrPL85HgAUKCgJAgICQICAkCQoKAkCAwPkd6/V616TnVK/tO0/Oi2+Z4u5xIEBASBIQEASFBQEgQEBIEhASB8ecjrbz+3KHd9zPt9c9/+nP2fCR4gJAgICQICAkCQoKAkCAgJAhct49kr+bvX2f6OVGV1+/Tc68dHCAkCAgJAkKCgJAgICQICAkC43Ok6u/9u69z23N7pu/Hu21P7NTP/dSczYkEASFBQEgQEBIEhAQBIUFASBBYzpGquUfltnvMqnnOqXvwdk3vF+2q5lqejwQXERIEhAQBIUFASBAQEgSEBIHlHOm2fZ6V1Rxgei40vS90271wt90jd9vXdSJBQEgQEBIEhAQBIUFASBAQEgS277U7tT9zav9k+n62U/s50/fs7Xrlc1hxIkFASBAQEgSEBAEhQUBIEBASBLLnI902T5h22/OLdk3/vFavf2rPbXofzIkEASFBQEgQEBIEhAQBIUFASBDI5kjfzan76Faqe/lOue35VLv/34kEASFBQEgQEBIEhAQBIUFASBD4dnOk6X2h6fv0Tj0Panpvqnr9U3txTiQICAkCQoKAkCAgJAgICQJCgkA2R/pu+y27Tt1ft/v6p97nqedWVZxIEBASBIQEASFBQEgQEBIEhASB7TnSbX+/X5meC+1+3enXP7WPdGqPaHq+Zx8JDhASBIQEASFBQEgQEBIEhASBH5/P5/R7gOc5kSAgJAgICQJCgoCQICAkCAgJAn8Bp7j/dkRDmEUAAAAASUVORK5CYII=" alt="QR Code" class="qr-code-header">
+            </div>
+            <div class="name-secondary">(Jonny Lim)</div>
             <div class="title">작가 | Writer</div>
             <div class="tagline">"한국과 뉴질랜드를 잇는 이야기"</div>
             
@@ -287,7 +315,7 @@
                 <div class="section-title">📞 Contact</div>
                 <div class="contact-item">
                     <span class="contact-icon">📧</span>
-                    <a href="/cdn-cgi/l/email-protection#7b111712164a434b3b1c161a121755181416"><span class="__cf_email__" data-cfemail="2c464045411d141c6c4b414d4540024f4341">[email&#160;protected]</span></a>
+                    <a href="mailto:jlim180@gmail.com">jlim180@gmail.com</a>
                 </div>
                 <div class="contact-item">
                     <span class="contact-icon">🇰🇷</span>
@@ -344,8 +372,8 @@
         function downloadVCard() {
             const vcard = `BEGIN:VCARD
 VERSION:3.0
-FN:솔별 (Sol Byul / Lyra S. Wood)
-N:Sol Byul;;;;;
+FN:솔별 (Sol Byeol / Jonny Lim)
+N:Lim;Jonny;;;;
 TITLE:작가 | Writer | Ph.D. Life Sciences | M.B.A.
 EMAIL;TYPE=INTERNET:jlim180@gmail.com
 TEL;TYPE=CELL:+82-10-2200-8231
@@ -353,7 +381,7 @@ TEL;TYPE=CELL:+64-27-517-8379
 URL:https://www.linkedin.com/in/jonny-lim-136bb644
 URL:https://www.threads.com/@cangyong77
 URL:https://www.royalroad.com/profile/858702/fictions
-NOTE:한국과 뉴질랜드를 잇는 이야기를 쓰는 작가.\\n\\nCredentials: Ph.D. Life Sciences, M.B.A. in Business Management, Essayist & Novelist, Certified Coffee Barista, Wine Sommelier, Content Creator\\n\\n출판 작품:\\n- 마흔일곱 삶의 지도를 바꾸다 (교보문고)\\n- Forty-Seven: Rewriting... (Amazon)\\n- 논문공장 3870 - 사냥의 시작 (네이버 웹소설)\\n- 검은 연구실 - 옮겨 심겨진 괴물 (네이버 웹소설)\\n\\nSocial: @cangyong77 (Threads)\\nRoyal Road: royalroad.com/profile/858702/fictions
+NOTE:한국과 뉴질랜드를 잇는 이야기를 쓰는 작가.\\n\\nCredentials: Ph.D. Life Sciences, M.B.A. in Business Management, Essayist & Novelist, Certified Coffee Barista, Wine Sommelier, Content Creator\\n\\n출판 작품:\\n- 마흔일곱 삶의 지도를 바꾸다 (교보문고)\\n- Forty-Seven: Rewriting... (Amazon)\\n- 논문공장 3870 - 사냥의 시작 (네이버 웹소설)\\n- 검은 연구실 - 옮겨 심겨진 괴물 (네이버 웹소설)\\n\\nPen Names: 솔별 (Sol Byeol), Lyra S. Wood\\nSocial: @cangyong77 (Threads)\\nRoyal Road: royalroad.com/profile/858702/fictions
 END:VCARD`;
             
             const blob = new Blob([vcard], { type: 'text/vcard' });
