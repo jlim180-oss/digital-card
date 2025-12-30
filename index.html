@@ -315,7 +315,7 @@
                 <div class="section-title">📞 Contact</div>
                 <div class="contact-item">
                     <span class="contact-icon">📧</span>
-                    <a href="/cdn-cgi/l/email-protection#167c7a7f7b272e2656717b777f7a3875797b"><span class="__cf_email__" data-cfemail="b7dddbdeda868f87f7d0dad6dedb99d4d8da">[email&#160;protected]</span></a>
+                    <a href="#" id="email-link"><span id="email-display"></span></a>
                 </div>
                 <div class="contact-item">
                     <span class="contact-icon">🇰🇷</span>
@@ -373,7 +373,22 @@
         </div>
     </div>
     
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
+        // Generate email dynamically to bypass Cloudflare protection
+        document.addEventListener('DOMContentLoaded', function() {
+            const user = 'jlim180';
+            const domain = 'gmail.com';
+            const email = user + '@' + domain;
+            
+            const emailDisplay = document.getElementById('email-display');
+            const emailLink = document.getElementById('email-link');
+            
+            if (emailDisplay && emailLink) {
+                emailDisplay.textContent = email;
+                emailLink.href = 'mailto:' + email;
+            }
+        });
+        
         function downloadVCard() {
             const vcard = `BEGIN:VCARD
 VERSION:3.0
@@ -389,3 +404,17 @@ URL:https://www.royalroad.com/profile/858702/fictions
 URL:https://www.youtube.com/@%EC%9E%84%EC%B0%BD%EC%9A%A9-h9b
 NOTE:한국과 뉴질랜드를 잇는 이야기를 쓰는 작가.\\n\\nCredentials: Ph.D. Life Sciences, M.B.A. in Business Management, Essayist & Novelist, Certified Coffee Barista, Wine Sommelier, Content Creator\\n\\n출판 작품:\\n- 마흔일곱 삶의 지도를 바꾸다 (교보문고)\\n- Forty-Seven: Rewriting... (Amazon)\\n- 논문공장 3870 - 사냥의 시작 (네이버 웹소설)\\n- 검은 연구실 - 옮겨 심겨진 괴물 (네이버 웹소설)\\n\\nPen Names: 솔별 (Sol Byeol), Lyra S. Wood\\nSocial: @cangyong77 (Threads)\\nRoyal Road: royalroad.com/profile/858702/fictions\\nYouTube: youtube.com/@임창용-h9b
 END:VCARD`;
+
+            const blob = new Blob([vcard], { type: 'text/vcard' });
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'SolByeol_Contact.vcf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
