@@ -189,6 +189,34 @@
             border-left: 3px solid #d4af37;
         }
         
+        .works-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .works-column {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .column-header {
+            font-weight: 600;
+            color: #1a3a5c;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #d4af37;
+            font-size: 0.95em;
+        }
+        
+        @media (max-width: 768px) {
+            .works-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        
         .publication-title {
             font-weight: 600;
             color: #1a3a5c;
@@ -283,7 +311,7 @@
                 <div class="highlights-grid">
                     <div class="highlight-item">
                         <span class="highlight-icon">🎓</span>
-                        Ph.D. Life Sciences
+                        Ph.D. in Life Science
                     </div>
                     <div class="highlight-item">
                         <span class="highlight-icon">📊</span>
@@ -331,29 +359,51 @@
             <div class="section">
                 <div class="section-title">📚 Published Works</div>
                 
-                <div class="publication">
-                    <div class="publication-title">마흔일곱, 삶의 지도를 바꾸다</div>
-                    <div class="publication-meta">교보문고 | <a href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012066480" target="_blank" style="color: #2d4a7c;">View Book →</a></div>
+                <div class="works-container">
+                    <!-- Left Column: Published Books -->
+                    <div class="works-column">
+                        <div class="column-header">📖 출판 도서</div>
+                        
+                        <div class="publication">
+                            <div class="publication-title">마흔일곱, 삶의 지도를 바꾸다</div>
+                            <div class="publication-meta">교보문고 | <a href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012066480" target="_blank" style="color: #2d4a7c;">View Book →</a></div>
+                        </div>
+                        
+                        <div class="publication">
+                            <div class="publication-title">Forty-Seven: Rewriting the Map of Life</div>
+                            <div class="publication-meta">Amazon | <a href="https://www.amazon.com.au/dp/B0FNLFDKGD" target="_blank" style="color: #2d4a7c;">View Book →</a></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column: Web Novels -->
+                    <div class="works-column">
+                        <div class="column-header">💻 네이버 웹소설</div>
+                        
+                        <div class="publication">
+                            <div class="publication-title">논문공장 3870 - 사냥의 시작 <span class="rating">★10.0</span></div>
+                            <div class="publication-meta">네이버 웹소설 | <a href="http://novel.naver.com/best/list?novelId=1208494" target="_blank" style="color: #2d4a7c;">Read Now →</a></div>
+                        </div>
+                        
+                        <div class="publication">
+                            <div class="publication-title">검은 연구실 - 옮겨 심겨진 괴물 <span class="rating">★8.38</span></div>
+                            <div class="publication-meta">네이버 웹소설 | <a href="http://novel.naver.com/best/list?novelId=1210421" target="_blank" style="color: #2d4a7c;">Read Now →</a></div>
+                        </div>
+                        
+                        <div class="publication">
+                            <div class="publication-title">별이 사라진 시대: 우주로 간다! <span class="rating">★10.0</span></div>
+                            <div class="publication-meta">네이버 웹소설 | <a href="https://novel.naver.com/challenge/list?novelId=1213871" target="_blank" style="color: #2d4a7c;">Read Now →</a></div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            
+            <!-- YouTube Channel Section -->
+            <div class="section">
+                <div class="section-title">🎥 YouTube Channel</div>
                 
                 <div class="publication">
-                    <div class="publication-title">Forty-Seven: Rewriting the Map of Life</div>
-                    <div class="publication-meta">Amazon | <a href="https://www.amazon.com.au/dp/B0FNLFDKGD" target="_blank" style="color: #2d4a7c;">View Book →</a></div>
-                </div>
-                
-                <div class="publication">
-                    <div class="publication-title">논문공장 3870 - 사냥의 시작 <span class="rating">★10.0</span></div>
-                    <div class="publication-meta">네이버 웹소설 | <a href="http://novel.naver.com/best/list?novelId=1208494" target="_blank" style="color: #2d4a7c;">Read Now →</a></div>
-                </div>
-                
-                <div class="publication">
-                    <div class="publication-title">검은 연구실 - 옮겨 심겨진 괴물 <span class="rating">★6.18</span></div>
-                    <div class="publication-meta">네이버 웹소설 | <a href="http://novel.naver.com/best/list?novelId=1210421" target="_blank" style="color: #2d4a7c;">Read Now →</a></div>
-                </div>
-                
-                <div class="publication">
-                    <div class="publication-title">시니어 행복연구소 🎥</div>
-                    <div class="publication-meta">YouTube | <a href="https://www.youtube.com/@%EC%9E%84%EC%B0%BD%EC%9A%A9-h9b" target="_blank" style="color: #2d4a7c;">Watch Channel →</a></div>
+                    <div class="publication-title">시니어 행복연구소</div>
+                    <div class="publication-meta">한국 시니어를 위한 행복과 건강 콘텐츠 | <a href="https://www.youtube.com/@%EC%9E%84%EC%B0%BD%EC%9A%A9-h9b" target="_blank" style="color: #2d4a7c;">Watch Channel →</a></div>
                 </div>
             </div>
             
@@ -394,7 +444,7 @@
 VERSION:3.0
 FN:솔별 (Sol Byeol / Jonny Lim)
 N:Lim;Jonny;;;;
-TITLE:작가 | Writer | Ph.D. Life Sciences | M.B.A.
+TITLE:작가 | Writer | Ph.D. in Life Science | M.B.A.
 EMAIL;TYPE=INTERNET:jlim180@gmail.com
 TEL;TYPE=CELL:+82-10-2200-8231
 TEL;TYPE=CELL:+64-27-517-8379
@@ -402,7 +452,7 @@ URL:https://www.linkedin.com/in/jonny-lim-136bb644
 URL:https://www.threads.com/@cangyong77
 URL:https://www.royalroad.com/profile/858702/fictions
 URL:https://www.youtube.com/@%EC%9E%84%EC%B0%BD%EC%9A%A9-h9b
-NOTE:한국과 뉴질랜드를 잇는 이야기를 쓰는 작가.\\n\\nCredentials: Ph.D. Life Sciences, M.B.A. in Business Management, Essayist & Novelist, Certified Coffee Barista, Wine Sommelier, Content Creator\\n\\n출판 작품:\\n- 마흔일곱 삶의 지도를 바꾸다 (교보문고)\\n- Forty-Seven: Rewriting... (Amazon)\\n- 논문공장 3870 - 사냥의 시작 (네이버 웹소설)\\n- 검은 연구실 - 옮겨 심겨진 괴물 (네이버 웹소설)\\n\\nPen Names: 솔별 (Sol Byeol), Lyra S. Wood\\nSocial: @cangyong77 (Threads)\\nRoyal Road: royalroad.com/profile/858702/fictions\\nYouTube: youtube.com/@임창용-h9b
+NOTE:한국과 뉴질랜드를 잇는 이야기를 쓰는 작가.\\n\\nCredentials: Ph.D. in Life Science, M.B.A. in Business Management, Essayist & Novelist, Certified Coffee Barista, Wine Sommelier, Content Creator\\n\\n출판 작품:\\n- 마흔일곱 삶의 지도를 바꾸다 (교보문고)\\n- Forty-Seven: Rewriting... (Amazon)\\n- 논문공장 3870 - 사냥의 시작 ★10.0 (네이버 웹소설)\\n- 검은 연구실 - 옮겨 심겨진 괴물 ★8.38 (네이버 웹소설)\\n- 별이 사라진 시대: 우주로 간다! ★10.0 (네이버 웹소설)\\n\\nPen Names: 솔별 (Sol Byeol), Lyra S. Wood\\nSocial: @cangyong77 (Threads)\\nRoyal Road: royalroad.com/profile/858702/fictions\\nYouTube: youtube.com/@임창용-h9b
 END:VCARD`;
 
             const blob = new Blob([vcard], { type: 'text/vcard' });
