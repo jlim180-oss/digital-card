@@ -148,8 +148,11 @@
             font-weight: 700;
             color: #1a3a5c;
             margin-bottom: 15px;
+            padding: 10px;
             padding-bottom: 8px;
             border-bottom: 2px solid #d4af37;
+            background: linear-gradient(to right, #f8f9fa, transparent);
+            border-radius: 5px;
         }
         
         .contact-item {
@@ -187,7 +190,28 @@
             background: #f8f9fa;
             border-radius: 8px;
             border-left: 3px solid #d4af37;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
+        
+        .publication:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .language-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 600;
+            margin-left: 8px;
+            color: white;
+        }
+        
+        .lang-ko { background: #0066cc; }
+        .lang-en { background: #28a745; }
+        .lang-ja { background: #dc3545; }
+        .lang-es { background: #ff6b35; }
         
         .works-container {
             display: grid;
@@ -199,6 +223,36 @@
         .works-column {
             display: flex;
             flex-direction: column;
+        }
+        
+        .web-novels-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .web-novels-subcolumn {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .subcolumn-label {
+            font-size: 0.85em;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 10px;
+            padding: 5px 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        @media (max-width: 992px) {
+            .web-novels-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
         }
         
         .column-header {
@@ -264,17 +318,20 @@
         
         .social-link {
             padding: 12px;
-            background: #1a3a5c;
+            background: linear-gradient(135deg, #1a3a5c, #2d4a7c);
             color: white;
             text-align: center;
             border-radius: 8px;
             text-decoration: none;
-            transition: background 0.3s;
+            transition: all 0.3s;
             font-size: 0.9em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         
         .social-link:hover {
-            background: #2d4a7c;
+            background: linear-gradient(135deg, #2d4a7c, #3d5a8c);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
         
         @media (max-width: 600px) {
@@ -305,7 +362,7 @@
             </div>
             <div class="name-secondary">(Jonny Lim)</div>
             <div class="title">작가 | Writer</div>
-            <div class="tagline">"한국과 뉴질랜드를 잇는 이야기"</div>
+            <div class="tagline">"한국과 뉴질랜드를 잇는 이야기"<br>"Bridging Stories Between Korea and New Zealand"</div>
             
             <div class="profile-highlights">
                 <div class="highlights-grid">
@@ -355,55 +412,80 @@
                 </div>
             </div>
             
-            <!-- Published Works Section -->
+            <!-- Published Books Section -->
             <div class="section">
-                <div class="section-title">📚 Published Works</div>
+                <div class="section-title">📖 출판 도서 (Published Books)</div>
                 
-                <div class="works-container">
-                    <!-- Left Column: Published Books -->
-                    <div class="works-column">
-                        <div class="column-header">📖 출판 도서</div>
+                <div class="publication">
+                    <div class="publication-title">마흔일곱, 삶의 지도를 바꾸다</div>
+                    <div class="publication-meta">교보문고 | <a href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012066480" target="_blank" style="color: #2d4a7c;">View Book →</a></div>
+                </div>
+                
+                <div class="publication">
+                    <div class="publication-title">Forty-Seven: Rewriting the Map of Life</div>
+                    <div class="publication-meta">Amazon | <a href="https://www.amazon.com.au/dp/B0FNLFDKGD" target="_blank" style="color: #2d4a7c;">View Book →</a></div>
+                </div>
+            </div>
+            
+            <!-- Web Novels Section -->
+            <div class="section">
+                <div class="section-title">💻 웹소설 (Web Novels)</div>
+                
+                <div class="web-novels-grid">
+                    <!-- Korean Novels -->
+                    <div class="web-novels-subcolumn">
+                        <div class="subcolumn-label">🇰🇷 한국어 소설</div>
                         
                         <div class="publication">
-                            <div class="publication-title">마흔일곱, 삶의 지도를 바꾸다</div>
-                            <div class="publication-meta">교보문고 | <a href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012066480" target="_blank" style="color: #2d4a7c;">View Book →</a></div>
+                            <div class="publication-title">🇰🇷 논문공장 3870 - 사냥의 시작</div>
+                            <div class="publication-meta">네이버 웹소설 | <a href="http://novel.naver.com/best/list?novelId=1208494" target="_blank" style="color: #2d4a7c;">Read →</a></div>
                         </div>
                         
                         <div class="publication">
-                            <div class="publication-title">Forty-Seven: Rewriting the Map of Life</div>
-                            <div class="publication-meta">Amazon | <a href="https://www.amazon.com.au/dp/B0FNLFDKGD" target="_blank" style="color: #2d4a7c;">View Book →</a></div>
+                            <div class="publication-title">🇰🇷 검은 연구실 - 옮겨 심겨진 괴물</div>
+                            <div class="publication-meta">네이버 웹소설 | <a href="http://novel.naver.com/best/list?novelId=1210421" target="_blank" style="color: #2d4a7c;">Read →</a></div>
+                        </div>
+                        
+                        <div class="publication">
+                            <div class="publication-title">🇰🇷 별이 사라진 시대: 우주로 간다!</div>
+                            <div class="publication-meta">네이버 웹소설 | <a href="https://novel.naver.com/challenge/list?novelId=1213871" target="_blank" style="color: #2d4a7c;">Read →</a></div>
                         </div>
                     </div>
                     
-                    <!-- Right Column: Web Novels -->
-                    <div class="works-column">
-                        <div class="column-header">💻 네이버 웹소설</div>
+                    <!-- Foreign Language Novels -->
+                    <div class="web-novels-subcolumn">
+                        <div class="subcolumn-label">🌍 해외 소설 (Foreign)</div>
                         
                         <div class="publication">
-                            <div class="publication-title">논문공장 3870 - 사냥의 시작 <span class="rating">★10.0</span></div>
-                            <div class="publication-meta">네이버 웹소설 | <a href="http://novel.naver.com/best/list?novelId=1208494" target="_blank" style="color: #2d4a7c;">Read Now →</a></div>
+                            <div class="publication-title">Royal Road <span class="language-badge lang-en">English</span></div>
+                            <div class="publication-meta">English Web Novels | <a href="https://www.royalroad.com/profile/858702/fictions" target="_blank" style="color: #2d4a7c;">View →</a></div>
                         </div>
                         
                         <div class="publication">
-                            <div class="publication-title">검은 연구실 - 옮겨 심겨진 괴물 <span class="rating">★8.38</span></div>
-                            <div class="publication-meta">네이버 웹소설 | <a href="http://novel.naver.com/best/list?novelId=1210421" target="_blank" style="color: #2d4a7c;">Read Now →</a></div>
+                            <div class="publication-title">小説家になろう <span class="language-badge lang-ja">日本語</span></div>
+                            <div class="publication-meta">Japanese Novels | <a href="https://mypage.syosetu.com/3029059/" target="_blank" style="color: #2d4a7c;">読む →</a></div>
                         </div>
                         
                         <div class="publication">
-                            <div class="publication-title">별이 사라진 시대: 우주로 간다! <span class="rating">★10.0</span></div>
-                            <div class="publication-meta">네이버 웹소설 | <a href="https://novel.naver.com/challenge/list?novelId=1213871" target="_blank" style="color: #2d4a7c;">Read Now →</a></div>
+                            <div class="publication-title">Wattpad <span class="language-badge lang-es">Español</span></div>
+                            <div class="publication-meta">Spanish Novels | <a href="https://www.wattpad.com/user/Solbyeol460" target="_blank" style="color: #2d4a7c;">Leer →</a></div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- YouTube Channel Section -->
+            <!-- Content Channels Section -->
             <div class="section">
-                <div class="section-title">🎥 YouTube Channel</div>
+                <div class="section-title">📺 콘텐츠 채널 (Content Channels)</div>
                 
                 <div class="publication">
-                    <div class="publication-title">시니어 행복연구소</div>
-                    <div class="publication-meta">한국 시니어를 위한 행복과 건강 콘텐츠 | <a href="https://www.youtube.com/@%EC%9E%84%EC%B0%BD%EC%9A%A9-h9b" target="_blank" style="color: #2d4a7c;">Watch Channel →</a></div>
+                    <div class="publication-title">시니어 행복연구소 🎥</div>
+                    <div class="publication-meta">YouTube | 한국 시니어를 위한 행복과 건강 콘텐츠 (Health & Wellness Content for Korean Seniors) | <a href="https://www.youtube.com/@%EC%9E%84%EC%B0%BD%EC%9A%A9-h9b" target="_blank" style="color: #2d4a7c;">Watch Channel →</a></div>
+                </div>
+                
+                <div class="publication">
+                    <div class="publication-title">노인건강관리 블로그 📝</div>
+                    <div class="publication-meta">Tistory Blog | 시니어 건강과 웰빙 정보 (Senior Health & Wellness Information) | <a href="https://insight26186.tistory.com/" target="_blank" style="color: #2d4a7c;">Visit Blog →</a></div>
                 </div>
             </div>
             
@@ -413,8 +495,6 @@
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/jonny-lim-136bb644" target="_blank" class="social-link">LinkedIn</a>
                     <a href="https://www.threads.com/@cangyong77" target="_blank" class="social-link">Threads</a>
-                    <a href="https://www.youtube.com/@%EC%9E%84%EC%B0%BD%EC%9A%A9-h9b" target="_blank" class="social-link">YouTube</a>
-                    <a href="https://www.royalroad.com/profile/858702/fictions" target="_blank" class="social-link">Royal Road</a>
                 </div>
             </div>
             
@@ -451,8 +531,11 @@ TEL;TYPE=CELL:+64-27-517-8379
 URL:https://www.linkedin.com/in/jonny-lim-136bb644
 URL:https://www.threads.com/@cangyong77
 URL:https://www.royalroad.com/profile/858702/fictions
+URL:https://mypage.syosetu.com/3029059/
+URL:https://www.wattpad.com/user/Solbyeol460
 URL:https://www.youtube.com/@%EC%9E%84%EC%B0%BD%EC%9A%A9-h9b
-NOTE:한국과 뉴질랜드를 잇는 이야기를 쓰는 작가.\\n\\nCredentials: Ph.D. in Life Science, M.B.A. in Business Management, Essayist & Novelist, Certified Coffee Barista, Wine Sommelier, Content Creator\\n\\n출판 작품:\\n- 마흔일곱 삶의 지도를 바꾸다 (교보문고)\\n- Forty-Seven: Rewriting... (Amazon)\\n- 논문공장 3870 - 사냥의 시작 ★10.0 (네이버 웹소설)\\n- 검은 연구실 - 옮겨 심겨진 괴물 ★8.38 (네이버 웹소설)\\n- 별이 사라진 시대: 우주로 간다! ★10.0 (네이버 웹소설)\\n\\nPen Names: 솔별 (Sol Byeol), Lyra S. Wood\\nSocial: @cangyong77 (Threads)\\nRoyal Road: royalroad.com/profile/858702/fictions\\nYouTube: youtube.com/@임창용-h9b
+URL:https://insight26186.tistory.com/
+NOTE:한국과 뉴질랜드를 잇는 이야기를 쓰는 작가.\\n\\nCredentials: Ph.D. in Life Science, M.B.A. in Business Management, Essayist & Novelist, Certified Coffee Barista, Wine Sommelier, Content Creator\\n\\n출판 작품:\\n- 마흔일곱 삶의 지도를 바꾸다 (교보문고)\\n- Forty-Seven: Rewriting... (Amazon)\\n- 논문공장 3870 - 사냥의 시작 (네이버 웹소설)\\n- 검은 연구실 - 옮겨 심겨진 괴물 (네이버 웹소설)\\n- 별이 사라진 시대: 우주로 간다! (네이버 웹소설)\\n- Royal Road Stories (English)\\n- 小説家になろう (Japanese)\\n- Wattpad Stories (Spanish)\\n\\n콘텐츠 채널:\\n- YouTube: 시니어 행복연구소\\n- Blog: 노인건강관리 (Tistory)\\n\\nPen Names: 솔별 (Sol Byeol), Lyra S. Wood\\nSocial: @cangyong77 (Threads)
 END:VCARD`;
 
             const blob = new Blob([vcard], { type: 'text/vcard' });
